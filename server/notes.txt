@@ -1,0 +1,15 @@
+
+**MIDDLEWARE**
+anything you can do with a routehandler you can do with a middleware
+gotta use next in arg/param and then use next function in function to pass off to next middleware or routehandler
+3rd party middleware (i.e. morgan) doesn't need next called, already configured
+
+MORGAN - app.use(morgan("tiny" || "dev"))
+
+NEVER USE STRING INTERPOLATION - will make you vulnerable to sql injection attacks
+const results = await db.query("SELECT * FROM asanas WHERE ID=$1", [req.params.id])
+$# is a place holder, so $2 , you would pass in a second parameter like [req.params.id], [second parameter to match $2]
+
+ERROR
+i get an error after hitting add button, but it actually saves to the DB after I refresh page and it also displays
+I screenshotted the error
