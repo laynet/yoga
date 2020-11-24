@@ -27,22 +27,24 @@ const AsanaList = (props) => {
       
     },[])
 
-    const handleDelete = async (e, id) => {
-        e.stopPropagation()
-        try{
-           const response = await AsanaFinder.delete(`/${id}`)
-           setAsanas(asanas.filter(asana => {
-               return asana.id !== id
-           }))
-        }catch(err){
-            console.log(err)
-        }
-    }
+  
 
-    const handleUpdate = async (e, id) => {
-        e.stopPropagation()
-        history.push(`/asanas/${id}/update`)
-    }
+    // const handleUpdate = async (e, id) => {
+    //     e.stopPropagation()
+    //     history.push(`/asanas/${id}/update`)
+    // }
+
+    // const handleDelete = async (e, id) => {
+    //     e.stopPropagation()
+    //     try{
+    //        const response = await AsanaFinder.delete(`/${id}`)
+    //        setAsanas(asanas.filter(asana => {
+    //            return asana.id !== id
+    //        }))
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    // }
 
     const handleAsanaSelect = (id) => {
         history.push(`/asanas/${id}`)
@@ -66,12 +68,13 @@ const AsanaList = (props) => {
         <div className="list-group">
           
            <table className="table table-hover table-dark">
+               <thead className="text-center">Asanas</thead>
             <thead>
                <tr className="bg-primary">
-                   <th scope="col">asana</th>
-                   <th scope="col">sanskrit name</th>
-                   <th scope="col">edit</th>
-                   <th scope="col">delete</th>
+                   <th scope="col">english </th>
+                   <th scope="col">sanskrit</th>
+                   {/* <th scope="col">edit</th>
+                   <th scope="col">delete</th> */}
                </tr>
             </thead>
            
@@ -85,8 +88,8 @@ const AsanaList = (props) => {
                   <tr onClick={() => handleAsanaSelect(asana.id)} key={asana.id}>
                       <td>{asana.english_name}</td>
                       <td>{asana.sanskrit_name}</td>
-                      <td><button onClick={(e) => handleUpdate(e, asana.id)}  className="btn btn-warning">edit</button></td>
-                      <td><button onClick={(e) => handleDelete(e, asana.id)} className="btn btn-danger">delete</button></td>
+                      {/* <td><button onClick={(e) => handleUpdate(e, asana.id)}  className="btn btn-warning">edit</button></td> */}
+                      {/* <td><button onClick={(e) => handleDelete(e, asana.id)} className="btn btn-danger">delete</button></td> */}
                   </tr> 
                  
                    )

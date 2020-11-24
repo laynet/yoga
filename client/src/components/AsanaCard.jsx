@@ -7,6 +7,7 @@ const AsanaCard= () => {
     let history = useHistory()
     const {id} = useParams()
     const {selectedAsana, setSelectedAsana} = useContext(AsanasContext)
+    const {asanas, setAsanas} = useContext(AsanasContext)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,21 +25,31 @@ const AsanaCard= () => {
     function handleEdit(){
         history.push(`/asanas/${id}/update`)
     }
+    const handleDelete = async (e) => {
+        e.stopPropagation()
+        try{
+           const response = await AsanaFinder.delete(`/${id}`)
+           setAsanas(asanas.filter(asana => {
+               return asana.id !== id
+           }))
+        }catch(err){
+            console.log(err)
+        }
+        history.push("/")
+    }
 
     
     return (
         <div>
      
            
-        
-        {/* {selectedAsana && selectedAsana.english_name} */}
+{/*         
+        {selectedAsana && selectedAsana.english_name} */}
 
     <h1>{selectedAsana.english_name} / {selectedAsana.sanskrit_name}</h1>  
     <p>{selectedAsana.notes}</p>
-    <button type="submit" 
-    //TODO need to figure out how to route this to the updateAsana component
-    onClick={handleEdit} 
-    className="btn btn-primary">Edit</button>
+    <button type="submit" onClick={handleEdit} className="btn btn-primary">Edit</button>
+    <button onClick={(e) => handleDelete(e)} className="btn btn-danger">delete</button>
        
     </div> 
     
