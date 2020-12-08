@@ -39,21 +39,18 @@ const AsanaCard= () => {
     }
 
     
-    return (
+    return selectedAsana ? (
         <div>
-     
-           
-{/*         
-        {selectedAsana && selectedAsana.english_name} */}
+        {selectedAsana.english_name}
 
-    <h1>{selectedAsana.english_name} / {selectedAsana.sanskrit_name}</h1>  
-    <p>{selectedAsana.notes}</p>
-    <button type="submit" onClick={handleEdit} className="btn btn-primary">Edit</button>
-    <button onClick={(e) => handleDelete(e)} className="btn btn-danger">delete</button>
+        <h1>{selectedAsana.english_name} / {selectedAsana.sanskrit_name}</h1>  
+        <p>{selectedAsana.notes}</p>
+        <button type="submit" onClick={handleEdit} className="btn btn-primary">Edit</button>
+        <button onClick={(e) => handleDelete(e)} className="btn btn-danger">delete</button>
        
     </div> 
     
-    )
+    ) : null;
 }
 
 export default AsanaCard

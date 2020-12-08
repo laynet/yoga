@@ -20,7 +20,7 @@ const App = () => {
             <Route exact path="/create" component={CreateNewAsana} />
             </Switch>
         </Router>
-    </div>;
+    </div>
     </AsanasContextProvider>
     )
 }
