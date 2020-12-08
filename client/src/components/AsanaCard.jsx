@@ -1,15 +1,5 @@
 
 import React from 'react';
-/*interface AsanaCardProps {
-    asana: {
-        id: number;
-        english_name: string;
-        sanskrit_name: string;
-        notes: string;
-    };
-    onEdit: void;
-    onDelete: void;
-*/
 const AsanaCard= ({ asana, onEdit, onDelete }) => {
     const { english_name, sanskrit_name, notes } = asana;
 
