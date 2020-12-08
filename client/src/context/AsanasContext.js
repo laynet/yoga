@@ -4,7 +4,7 @@ export const AsanasContext = createContext();
 
 export const AsanasContextProvider = props => {
     const [asanas, setAsanas] = useState([])
-    const [selectedAsana, setSelectedAsana] = useState(null)
+    const [selectedAsana, setSelectedAsana] = useState()
 
     const addAsanas = (asana) => {
         setAsanas([...asanas, asana])
