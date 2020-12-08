@@ -14,13 +14,15 @@ app.use(express.json())
 
 app.get("/journals", async (req, res) => {
     try {
-    const results = await db.query('SELECT * FROM journals')
+    const response = await db.query('SELECT * FROM journals')
+    const journalEntries = response.rows
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", response)
     res.status(200).json({
         status: "success",
         //best practice for API returning a list: add a property onto json response listing how many results will be returned
-        results: results.rows.length,
+        count: journalEntries.length,
         data: {
-            journals: results[rows]
+            journals: journalEntries
         }
          // res.send(results[0])
     })
