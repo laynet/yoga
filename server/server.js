@@ -2,12 +2,33 @@ require("dotenv").config();
 const express = require("express")
 const cors = require("cors")
 const db = require('./db')
-const morgan = require('morgan')
+const morgan = require('morgan');
+const { Pool } = require("pg");
 const app = express()
 
 //middleware
+
 app.use(cors())
 app.use(express.json())
+
+
+app.get("/journals", async (req, res) => {
+    try {
+    const results = await db.query('SELECT * FROM journals')
+    res.status(200).json({
+        status: "success",
+        //best practice for API returning a list: add a property onto json response listing how many results will be returned
+        results: results.rows.length,
+        data: {
+            journals: results[rows]
+        }
+         // res.send(results[0])
+    })
+} catch(err) {
+    console.log(err)
+}
+   
+})
 
 
 //ROUTES
@@ -98,6 +119,9 @@ app.delete("/asanas/:id", async (req, res) => {
     }
     
 })
+
+
+
 
 
 

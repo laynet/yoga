@@ -4,12 +4,6 @@ import AsanaFinder from '../apis/AsanaFinder'
 import { AsanasContext } from '../context/AsanasContext'
 
 
-
-  
-  
-
-
-
 const AsanaList = (props) => {
     const {asanas, setAsanas} = useContext(AsanasContext)
    
@@ -60,7 +54,7 @@ const AsanaList = (props) => {
       
         
        <div>
-           <div class="row justify-content-center">
+           <div className="row justify-content-center">
              <button type="button" onClick={handleAdd} className="btn btn-primary btn-lg">
           Add Asana
         </button>

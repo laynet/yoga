@@ -1,0 +1,7 @@
+2020-12-01 17:47:11.822 CST [2398] LOG:  starting PostgreSQL 12.3 on x86_64-apple-darwin18.7.0, compiled by Apple clang version 11.0.0 (clang-1100.0.33.17), 64-bit
+2020-12-01 17:47:11.823 CST [2398] LOG:  listening on IPv6 address "::1", port 5432
+2020-12-01 17:47:11.823 CST [2398] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-12-01 17:47:11.824 CST [2398] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2020-12-01 17:47:11.832 CST [2399] LOG:  database system was shut down at 2020-12-01 17:46:09 CST
+2020-12-01 17:47:11.835 CST [2398] LOG:  database system is ready to accept connections
+2020-12-01 17:47:57.141 CST [2415] FATAL:  role "postgres" does not exist
